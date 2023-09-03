@@ -1,0 +1,94 @@
+﻿@model UserRegister
+
+@{
+    ViewData["Title"] = "Editar usuario";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Editar usuario</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Advanced Form</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- INICIO DE FORMULARIO -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Formulario de editar usuario</h3>
+                </div>
+                <form asp-controller="Users" asp-action="Create" method="post" role="form">
+@*                    <input asp-for="@Model.Id" type="hidden"/>*@
+                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="Name" class="form-control" placeholder="Primer nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="Surname" class="form-control" placeholder="Primer Apellido" required>
+                                </div>
+                                @*<div class="form-group">
+                                    <input asp-for="UserName" class="form-control" placeholder="Nombre de usuario" required>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="Password" class="form-control" placeholder="Contraseña" required>
+                                </div>*@
+                                <!-- /.form-group colum left -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="MiddleName" class="form-control" placeholder="Segundo nombre" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <input asp-for="Email" class="form-control" placeholder="Correo electronico" required>
+                                </div>
+                                @*<div class="form-group">
+                                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirmar contraaseña" required>
+                                </div>*@
+                                <!-- /.form-group colum rigth-->
+                            </div>
+
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="">
+                                <button class="btn btn-primary w-60 btn-lg float-right">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <!-- /.card-body -->
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!--Validacion del form-->
+@section scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                }
